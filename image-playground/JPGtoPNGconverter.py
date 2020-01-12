@@ -11,5 +11,8 @@ print(os.path.exists(directory))
 if not os.path.exists(directory):
     os.makedirs(directory)
 # loop through Pokedex
-#  convert images to png
-# save to the new folder
+for filename in os.listdir(path):
+    img = Image.open(f'{path}{filename}')
+    clean_name = os.path.splitext(filename)[0]
+    img.save(f'{directory}{clean_name}.png', 'png')
+    print('All done!')
